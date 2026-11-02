@@ -1,6 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600&display=swap');
 
+:root {
+  --paper: #fffdf7;
+  --paper-back: #e9dac5;
+  --ink: #67483b;
+  --soft-ink: #92745e;
+  --line: #e6d5c0;
+  --rose: #e8cbc5;
+  --sage: #dce3d2;
+  --yellow: #efe2c5;
+  --blue: #d7e2e4;
+  --lavender: #ded5e5;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,795 +21,508 @@
 body {
   margin: 0;
   padding: 0;
-  background: #e9dfce;
-  color: #5d493c;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at center, #f6eddf 0%, #eee1cc 100%);
   font-family: 'Noto Serif KR', serif;
-  background-image:
-    radial-gradient(#ffffff45 1px, transparent 1px);
-  background-size: 8px 8px;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 상단 */
 
 .site-header {
+  padding: 65px 20px 25px;
   text-align: center;
-  padding: 55px 20px 20px;
 }
 
-.site-header .top {
+.header-small {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 4px;
-  color: #96765f;
+  color: #ad8a70;
+  margin: 0 0 12px;
 }
 
 .site-header h1 {
-  margin: 10px 0;
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(35px, 6vw, 58px);
+  font-size: clamp(35px, 5vw, 55px);
   font-weight: 500;
   letter-spacing: 4px;
-  color: #784650;
+  margin: 0 0 15px;
 }
-
-.subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #96765f;
-}
-
-/* INTRO */
 
 .intro {
-  text-align: center;
-  margin: 45px auto 35px;
-  padding: 10px 20px;
-}
-
-.small-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
-  letter-spacing: 3px;
-  color: #a17b5b;
-}
-
-.intro h2 {
-  margin: 15px 0;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 500;
-  line-height: 1.1;
-  color: #814b53;
-}
-
-.intro p:last-child {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 2;
-  color: #927b69;
+  color: #806655;
+  margin: 0;
 }
 
-/* THEME MUSIC */
-
-.theme-music {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  max-width: 680px;
-  margin: 35px auto 80px;
-  padding: 22px 30px;
-  background: #faf4e9;
-  border: 1px solid #d7c5a9;
-  box-shadow: 4px 5px 0 #d7c7b1, 7px 10px 20px #60452b20;
-  overflow: hidden;
-}
-
-.music-cover {
-  display: grid;
-  flex-shrink: 0;
-  width: 75px;
-  height: 75px;
-  place-items: center;
-  background: #ead7d4;
-  color: #925b67;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px;
-  transform: rotate(-4deg);
-  box-shadow: 3px 4px 8px #60452b25;
-}
-
-.theme-info {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  min-width: 0;
-}
-
-.theme-info > span {
-  color: #a17b5b;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 3px;
-}
-
-.theme-info h2 {
-  margin: 5px 0;
-  color: #814b53;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
-  font-weight: 500;
-}
-
-.theme-info p {
-  margin: 5px 0 12px;
-  color: #927b69;
-  font-size: 11px;
-}
-
-.theme-info audio {
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  height: 35px;
-}
-
-.music-flower {
-  position: absolute;
-  right: 15px;
-  bottom: 0;
-  color: #d5b3a4;
-  font-size: 60px;
-  opacity: .6;
-}
-
-/* BOOK */
+/* 펼쳐진 책 */
 
 .book {
   position: relative;
-  display: flex;
-  width: min(850px, 88%);
-  min-height: 560px;
-  margin: 80px auto 50px;
-  perspective: 1500px;
-  overflow: visible;
-  filter: drop-shadow(8px 13px 12px #59432c30);
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(1000px, calc(100% - 180px));
+  margin: 50px auto 100px;
+  filter: drop-shadow(0 18px 20px rgba(76, 53, 36, .17));
 }
 
-/* PAPER LAYERS */
+/* 책 뒤쪽 종이 */
 
-.paper-layer {
+.paper-back {
   position: absolute;
-  inset: 0;
-  background: #e6d7bd;
-  border: 1px solid #cdbb9e;
-  border-radius: 4px 10px 10px 4px;
+  inset: 12px -9px -12px 9px;
+  z-index: -2;
+  background: #e6d5bd;
+  border-radius: 5px;
 }
 
-.layer-one {
-  transform: translate(8px, 8px);
+.paper-back-two {
+  position: absolute;
+  inset: 6px -5px -6px 5px;
+  z-index: -1;
+  background: #f0e4d2;
+  border-radius: 5px;
 }
 
-.layer-two {
-  transform: translate(14px, 14px);
-  background: #e0cfb5;
-}
-
-.layer-three {
-  transform: translate(20px, 20px);
-  background: #d9c6a9;
-}
-
-/* BOOK PAGES */
+/* 페이지 공통 */
 
 .book-page {
   position: relative;
-  z-index: 2;
-  width: 50%;
-  min-height: 560px;
-  padding: 42px 35px;
-  background:
-    linear-gradient(90deg, #e8ddc9 0%, #fffaf0 5%, #fffaf0 94%, #e9dfce 100%);
-  border: 1px solid #d7c6aa;
+  min-width: 0;
+  min-height: 690px;
+  padding: 43px 42px;
+  overflow: hidden;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(rgba(187, 157, 122, .23) .65px, transparent .65px);
+  background-size: 11px 11px;
 }
 
 .left-page {
   border-radius: 5px 0 0 5px;
-  box-shadow: inset -12px 0 20px -18px #725b43;
+  border-right: 1px solid #e9ddcd;
+  padding-right: 48px;
 }
 
 .right-page {
   border-radius: 0 5px 5px 0;
-  box-shadow: inset 12px 0 20px -18px #725b43;
+  border-left: 1px solid #e9ddcd;
+  padding-left: 48px;
+  padding-right: 42px;
 }
+
+.page-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: #b18c70;
+  margin-bottom: 45px;
+}
+
+/* 책등 */
 
 .book-spine {
   position: absolute;
-  z-index: 4;
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 15px;
+  width: 24px;
   transform: translateX(-50%);
+  z-index: 5;
+  pointer-events: none;
   background: linear-gradient(
     90deg,
-    #d0bda0,
-    #f0e5d1,
-    #d0bda0
+    rgba(118, 80, 49, .03),
+    rgba(118, 80, 49, .19),
+    rgba(255, 255, 255, .6),
+    rgba(118, 80, 49, .08)
   );
-  box-shadow: 0 0 8px #715b4230;
 }
 
-.chapter {
-  margin: 5px 0 25px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #a17b5b;
-}
+/* 왼쪽 페이지 */
 
 .book-title {
-  margin: 30px 0;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 43px;
+  font-size: clamp(44px, 5vw, 60px);
+  line-height: .98;
   font-weight: 500;
-  line-height: 1;
-  color: #824c55;
+  margin: 0 0 27px;
+  color: #704a40;
 }
 
-.description {
+.book-description {
+  font-size: 13px;
+  line-height: 2.2;
+  color: #8b705d;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.flower {
+  position: absolute;
+  color: #b98170;
+  font-size: 27px;
+}
+
+.flower-left {
+  top: 26px;
+  right: 45px;
+}
+
+.flower-right {
+  top: 25px;
+  right: 38px;
+}
+
+/* 추억 지도 */
+
+.memory-map {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 15px 13px;
+  border: 1px dashed #d9bda3;
+  color: #b58a6c;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 12px;
-  line-height: 2.3;
-  color: #806d5c;
-}
-
-.map {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-  margin: 45px 0 20px;
-  padding: 25px 15px;
-  border: 1px dashed #bca78a;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      #f5eddf,
-      #f5eddf 5px,
-      #f1e7d6 5px,
-      #f1e7d6 10px
-    );
-  color: #9b8167;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
   letter-spacing: 1px;
 }
 
-.map strong {
-  font-size: 20px;
-  font-weight: 500;
-  color: #8b6260;
+.map-year {
+  white-space: nowrap;
 }
 
-.map-star {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  font-size: 25px;
-}
+/* 약속 */
 
-.apple-seal {
-  position: absolute;
-  right: 35px;
-  bottom: 95px;
+.promise {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  color: #986d54;
-  transform: rotate(9deg);
-}
-
-.apple-seal span {
-  font-size: 34px;
-}
-
-.apple-seal small {
+  gap: 9px;
+  margin-top: 20px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 9px;
-  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+.apple {
+  font-size: 19px;
 }
 
 .stamp {
   display: inline-block;
-  margin-top: 15px;
-  padding: 9px 13px;
-  border: 1px solid #b77e7e;
-  color: #a86d72;
+  margin-top: 28px;
+  padding: 10px 13px;
+  border: 1px solid #c99584;
+  color: #b98272;
   font-family: 'Cormorant Garamond', serif;
   font-size: 12px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   transform: rotate(-5deg);
 }
 
-.pressed-flower {
-  position: absolute;
-  top: 15px;
-  right: 30px;
-  color: #bd8c91;
-  font-size: 30px;
+/* 테마곡 */
+
+.theme-music {
+  margin-top: 32px;
+  padding: 17px 18px;
+  background: rgba(245, 235, 220, .8);
+  border: 1px solid #e5d5c1;
+  box-shadow: 0 4px 10px rgba(85, 61, 42, .06);
 }
 
-.page-number {
-  position: absolute;
-  right: 25px;
-  bottom: 18px;
+.music-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.music-note {
+  font-size: 25px;
+  color: #a77a68;
+}
+
+.music-label {
+  margin: 0 0 2px;
+  color: #aa8870;
   font-family: 'Cormorant Garamond', serif;
-  color: #a28b73;
-  font-size: 12px;
+  font-size: 11px;
+  letter-spacing: 2px;
 }
 
-/* VIDEO */
+.music-heading h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.music-description {
+  font-size: 12px;
+  color: #927765;
+  margin: 12px 0;
+}
+
+.theme-music audio {
+  display: block;
+  width: 100%;
+  height: 34px;
+}
+
+/* 오른쪽 영상 */
 
 .video-photo {
-  width: 90%;
-  margin: 25px auto 22px;
-  padding: 9px 9px 12px;
-  background: #fffefa;
-  border: 1px solid #e0d4c1;
-  box-shadow: 3px 5px 10px #60452b25;
+  width: 100%;
+  padding: 8px;
+  margin: 0 auto 24px;
+  background: #fff;
+  box-shadow: 0 5px 14px rgba(80, 57, 40, .14);
   transform: rotate(-1deg);
 }
 
 .video-photo video {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: contain;
-  background: #302b29;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #e8dfd3;
 }
 
-.video-photo p {
-  margin: 10px 0 0;
-  text-align: center;
-  color: #925b67;
+.memory-heading {
+  margin: 22px 0 17px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 21px;
+  font-weight: 500;
 }
 
-/* MEMORY PHOTOS */
+/* 사진 */
 
-.memory-photos {
+.photo-gallery {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 10px;
-  width: 100%;
-  margin: 25px auto;
 }
 
-.memory-photo {
-  width: 30%;
-  margin: 0;
-  padding: 6px 6px 10px;
-  background: #fffefa;
-  box-shadow: 2px 4px 8px #60452b30;
+.photo {
+  width: 31%;
+  min-width: 0;
+  margin: 5px 0 12px;
+  padding: 7px 7px 10px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(80, 57, 40, .13);
 }
 
-.memory-photo img {
+.photo-one {
+  transform: rotate(-3deg);
+}
+
+.photo-two {
+  transform: rotate(2deg);
+}
+
+.photo-three {
+  transform: rotate(-1deg);
+}
+
+.photo img {
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  background: #eee4d6;
 }
 
-.memory-photo figcaption {
-  padding-top: 7px;
-  color: #98765b;
+.photo figcaption {
+  padding-top: 8px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
+  color: #806957;
 }
 
-.photo-one {
-  transform: rotate(-6deg);
-}
-
-.photo-two {
-  transform: translateY(-7px) rotate(3deg);
-}
-
-.photo-three {
-  transform: rotate(-2deg);
-}
-
-.right-text {
-  margin-top: 22px;
-  color: #927b69;
-  font-size: 11px;
-  line-height: 2;
+.bookmark-guide {
+  margin-top: 24px;
   text-align: center;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #a48a74;
 }
 
-.daisy-decoration {
+/* 페이지 번호 */
+
+.page-number {
   position: absolute;
-  right: 20px;
-  bottom: 35px;
-  color: #bd8e8d;
-  font-size: 30px;
+  bottom: 18px;
+  right: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  color: #b79c82;
 }
 
-/* SIDE BOOKMARKS */
+/* 책갈피 */
 
-.side-bookmarks {
+.bookmarks {
   position: absolute;
+  top: 22px;
+  right: -105px;
   z-index: 10;
-  top: 65px;
-  right: -48px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 9px;
+  width: 100px;
 }
 
 .bookmark {
-  display: block;
-  width: 105px;
-  padding: 11px 10px 11px 17px;
-  border-radius: 0 7px 7px 0;
-  color: white;
-  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 43px;
+  padding: 0 11px;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 3px 3px 8px rgba(75, 51, 35, .12);
   font-family: 'Cormorant Garamond', serif;
   font-size: 12px;
   letter-spacing: 1px;
-  box-shadow: 3px 3px 5px #47372a35;
-  transition: .2s ease;
-}
-
-.bookmark span {
-  float: right;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .bookmark:hover {
-  width: 120px;
-  transform: translateX(5px);
+  transform: translateX(8px);
+  box-shadow: 5px 5px 10px rgba(75, 51, 35, .16);
 }
 
-.bookmark.pink {
-  background: #c77e9c;
-}
+.profile { background: var(--rose); }
+.story { background: var(--sage); }
+.gallery { background: var(--yellow); }
+.music { background: var(--blue); }
+.dates { background: #e9d0c4; }
+.letters { background: var(--lavender); }
 
-.bookmark.green {
-  background: #789b83;
-}
-
-.bookmark.yellow {
-  background: #d5a84e;
-}
-
-.bookmark.blue {
-  background: #7e9eaa;
-}
-
-.bookmark.red {
-  background: #b96d69;
-}
-
-.bookmark.purple {
-  background: #9879b5;
-}
-
-/* FOOTER */
-
-.bottom-text {
-  margin: 55px 15px;
-  text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: #98765b;
-}
+/* 하단 */
 
 footer {
-  padding: 30px 15px;
+  padding: 15px 20px 50px;
   text-align: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #98765b;
-}
-
-/* OTHER PAGES */
-
-.subpage {
-  width: min(850px, 90%);
-  min-height: 80vh;
-  margin: 50px auto;
-  padding: 35px;
-  background: #fffaf0;
-  border: 1px solid #d7c6aa;
-  box-shadow: 5px 8px 18px #60452b20;
-}
-
-.back {
-  color: #946d61;
-  text-decoration: none;
+  color: #a58a73;
   font-family: 'Cormorant Garamond', serif;
   font-size: 13px;
-}
-
-.page-heading {
-  margin: 45px 0;
-  text-align: center;
-}
-
-.page-heading span {
-  color: #a17b5b;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
-  letter-spacing: 3px;
-}
-
-.page-heading h1 {
-  margin: 12px 0;
-  color: #814b53;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  font-weight: 500;
-}
-
-.page-heading p {
-  color: #927b69;
-  font-size: 12px;
-}
-
-.paper-card,
-.letter-paper,
-.calendar-paper {
-  margin: 25px auto;
-  padding: 30px;
-  background: #f8f0e3;
-  border: 1px solid #dfcfb8;
-  box-shadow: 3px 5px 10px #60452b15;
-}
-
-.timeline {
-  max-width: 700px;
-  margin: auto;
-}
-
-.timeline article {
-  position: relative;
-  margin: 35px 0;
-  padding: 10px 20px 25px 30px;
-  border-left: 2px solid #c9a8a0;
-}
-
-.timeline article > span {
-  color: #a17b5b;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
   letter-spacing: 2px;
 }
 
-.timeline article h2 {
-  color: #814b53;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 27px;
-  font-weight: 500;
+footer p {
+  margin: 7px;
 }
 
-.timeline article p {
-  color: #806d5c;
-  font-size: 13px;
-  line-height: 2;
+/* 태블릿 */
+
+@media (max-width: 1000px) {
+  .book {
+    width: calc(100% - 150px);
+  }
+
+  .book-page {
+    padding: 35px 27px;
+    min-height: 650px;
+  }
+
+  .left-page {
+    padding-right: 32px;
+  }
+
+  .right-page {
+    padding-left: 32px;
+  }
+
+  .bookmarks {
+    right: -88px;
+    width: 84px;
+  }
+
+  .bookmark {
+    padding: 0 8px;
+    font-size: 11px;
+  }
 }
 
-.timeline-quote {
-  padding: 15px;
-  background: #f3e8e2;
-  border-left: 3px solid #bd8c9b;
-  color: #925b67;
-  font-size: 12px;
-  line-height: 2;
-}
+/* 모바일 */
 
-.timeline article.future {
-  padding: 25px;
-  background: #f7eddf;
-  border: 1px solid #d9c8ad;
-}
-
-.little-note {
-  margin: 50px auto;
-  text-align: center;
-  color: #814b53;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-}
-
-.little-note span {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-/* GALLERY PAGE */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-
-.gallery-grid figure {
-  margin: 0;
-  padding: 10px 10px 15px;
-  background: white;
-  box-shadow: 3px 5px 10px #60452b20;
-}
-
-.gallery-grid img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.gallery-grid figcaption {
-  padding-top: 10px;
-  text-align: center;
-  color: #98765b;
-  font-family: 'Cormorant Garamond', serif;
-}
-
-/* CALENDAR PAGE */
-
-.calendar-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.calendar-top button {
-  border: 1px solid #d7c6aa;
-  background: #fffaf0;
-  color: #814b53;
-  padding: 8px 14px;
-  cursor: pointer;
-}
-
-.calendar-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-}
-
-.calendar-weekday,
-.calendar-day,
-.calendar-empty {
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.calendar-weekday {
-  color: #98765b;
-  font-family: 'Cormorant Garamond', serif;
-}
-
-.calendar-day {
-  flex-direction: column;
-  gap: 3px;
-  border: 1px solid #e5d9c8;
-  background: #fffaf0;
-  color: #695545;
-  cursor: pointer;
-}
-
-.calendar-day.anniversary {
-  background: #f0dede;
-}
-
-.calendar-day.charlize {
-  background: #e8d9f3;
-}
-
-.calendar-day.joy {
-  background: #f6e8b9;
-}
-
-.event-detail,
-.calendar-note {
-  margin-top: 20px;
-  padding: 15px;
-  background: #f2e8d9;
-  color: #806d5c;
-  font-size: 12px;
-  line-height: 2;
-}
-
-/* MOBILE */
-
-@media (max-width: 700px) {
-
+@media (max-width: 650px) {
   .site-header {
-    padding-top: 35px;
+    padding-top: 40px;
+  }
+
+  .intro {
+    font-size: 12px;
   }
 
   .book {
-    width: 90%;
-    margin: 50px auto;
+    display: flex;
     flex-direction: column;
+    width: calc(100% - 36px);
+    margin: 30px auto 50px;
   }
 
   .book-page {
     width: 100%;
     min-height: auto;
-    padding: 30px 25px;
+    padding: 35px 27px 45px;
   }
 
   .left-page {
     border-radius: 5px 5px 0 0;
-    min-height: 450px;
+    border-right: 0;
+    border-bottom: 1px solid #e9ddcd;
   }
 
   .right-page {
     border-radius: 0 0 5px 5px;
-    min-height: 490px;
+    border-left: 0;
   }
 
   .book-spine {
     display: none;
   }
 
-  .side-bookmarks {
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 25px auto;
+  .bookmarks {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
   }
 
   .bookmark {
-    width: auto;
-    border-radius: 5px;
-    padding: 10px 13px;
+    min-height: 40px;
+    border-radius: 4px;
+    padding: 0 8px;
+    font-size: 11px;
   }
 
-  .bookmark:hover {
-    width: auto;
-    transform: translateY(-3px);
+  .book-title {
+    font-size: 48px;
+  }
+
+  .photo-gallery {
+    gap: 7px;
   }
 
   .theme-music {
-    width: 90%;
-    padding: 18px;
-    gap: 15px;
+    margin-top: 28px;
   }
 
-  .music-cover {
-    width: 58px;
-    height: 58px;
-    font-size: 30px;
-  }
-
-  .theme-info h2 {
-    font-size: 21px;
-  }
-
-  .music-flower {
-    font-size: 35px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .subpage {
-    padding: 22px;
-  }
-
-  .page-heading h1 {
-    font-size: 34px;
+  .memory-map {
+    font-size: 11px;
   }
 }
