@@ -1,1 +1,268 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+KR&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #e9ddc9;
+    color: #594437;
+    font-family: 'Noto Serif KR', serif;
+}
+
+header {
+    text-align: center;
+    padding: 35px 15px 25px;
+}
+
+.top {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #927b67;
+}
+
+header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 43px;
+    letter-spacing: 5px;
+    color: #7d3f48;
+    margin: 12px 0;
+}
+
+.subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #927b67;
+}
+
+.intro {
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.small-title {
+    color: #8b5550;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 500;
+    color: #7d3f48;
+}
+
+.intro p:last-child {
+    color: #927b67;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.book {
+    width: 90%;
+    max-width: 850px;
+    min-height: 430px;
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 12px 15px 25px #78634b55;
+    position: relative;
+}
+
+.left-page,
+.right-page {
+    position: relative;
+    padding: 40px 35px;
+    background: #f8f0e2;
+    min-width: 0;
+}
+
+.left-page {
+    background: linear-gradient(to right, #e9ddca, #f8f0e2);
+    border-right: 1px solid #d8c5aa;
+}
+
+.right-page {
+    background: linear-gradient(to left, #e9ddca, #f8f0e2);
+    padding-right: 100px;
+}
+
+.chapter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #8b5550;
+}
+
+.book-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 47px;
+    line-height: 1;
+    font-style: italic;
+    color: #7d3f48;
+    margin: 30px 0 20px;
+}
+
+.description {
+    font-size: 12px;
+    line-height: 2.1;
+    color: #806e5b;
+}
+
+.map {
+    height: 120px;
+    margin-top: 25px;
+    background: repeating-linear-gradient(
+        35deg,
+        #f2e7d5,
+        #f2e7d5 15px,
+        #e9ddc9 16px
+    );
+    border: 1px dashed #c6ad8d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #9c8063;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+}
+
+.stamp {
+    display: inline-block;
+    border: 1px solid #7d3f48;
+    padding: 5px 12px;
+    color: #7d3f48;
+    font-family: 'Cormorant Garamond', serif;
+    transform: rotate(-5deg);
+    font-size: 12px;
+}
+
+.photo {
+    background: white;
+    padding: 10px 10px 25px;
+    margin: 25px auto;
+    width: 90%;
+    transform: rotate(3deg);
+    box-shadow: 2px 5px 10px #78634b33;
+}
+
+.photo-inner {
+    height: 165px;
+    background: #e6d6c2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    color: #80634f;
+}
+
+.photo p {
+    text-align: center;
+    font-size: 11px;
+    color: #80634f;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.right-text {
+    text-align: center;
+    color: #927b67;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.bookmarks {
+    position: absolute;
+    right: 12px;
+    top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.bookmarks a {
+    width: 85px;
+    padding: 8px 5px;
+    text-align: center;
+    color: #fff5e8;
+    background: #7d3f48;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: .2s;
+}
+
+.bookmarks a:nth-child(2) {
+    background: #9a7654;
+}
+
+.bookmarks a:nth-child(3) {
+    background: #6d7760;
+}
+
+.bookmarks a:nth-child(4) {
+    background: #a47e70;
+}
+
+.bookmarks a:nth-child(5) {
+    background: #7c675a;
+}
+
+.bookmarks a:nth-child(6) {
+    background: #a18b65;
+}
+
+.bookmarks a:hover {
+    transform: translateX(7px);
+    filter: brightness(1.1);
+}
+
+.bottom-text {
+    text-align: center;
+    color: #927b67;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin: 30px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #d8c5aa;
+    color: #927b67;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 650px) {
+    .book {
+        grid-template-columns: 1fr;
+    }
+
+    .left-page,
+    .right-page {
+        padding: 30px 22px;
+    }
+
+    .right-page {
+        padding-right: 100px;
+    }
+
+    .bookmarks {
+        right: 8px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+}
+
