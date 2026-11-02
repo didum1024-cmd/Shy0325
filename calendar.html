@@ -1,1 +1,90 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="subpage">
+    <a href="index.html" class="back">← Back to the book</a>
+
+    <header class="page-heading">
+      <span>CHAPTER 05 · THE DATES</span>
+      <h1>Our Calendar</h1>
+      <p>Days worth remembering.</p>
+    </header>
+
+    <section class="calendar-paper">
+      <div class="calendar-top">
+        <button id="prev">←</button>
+        <h2 id="month"></h2>
+        <button id="next">→</button>
+      </div>
+
+      <div class="calendar-grid" id="calendar">
+        <div>Sun</div><div>Mon</div><div>Tue</div>
+        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      </div>
+
+      <p class="calendar-note">
+        ✿ 기억하고 싶은 날들을 표시해 보세요.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const monthTitle = document.getElementById("month");
+    const calendar = document.getElementById("calendar");
+
+    let current = new Date();
+
+    function renderCalendar() {
+      const year = current.getFullYear();
+      const month = current.getMonth();
+
+      monthTitle.textContent =
+        `${year} · ${current.toLocaleString("en", {month:"long"})}`;
+
+      calendar.innerHTML = `
+        <div>Sun</div><div>Mon</div><div>Tue</div>
+        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      `;
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const lastDate = new Date(year, month + 1, 0).getDate();
+
+      for (let i = 0; i < firstDay; i++) {
+        calendar.innerHTML += `<div class="empty"></div>`;
+      }
+
+      for (let day = 1; day <= lastDate; day++) {
+        const cell = document.createElement("div");
+        cell.className = "calendar-day";
+        cell.textContent = day;
+
+        cell.addEventListener("click", () => {
+          cell.classList.toggle("marked");
+        });
+
+        calendar.appendChild(cell);
+      }
+    }
+
+    document.getElementById("prev").onclick = () => {
+      current.setMonth(current.getMonth() - 1);
+      renderCalendar();
+    };
+
+    document.getElementById("next").onclick = () => {
+      current.setMonth(current.getMonth() + 1);
+      renderCalendar();
+    };
+
+    renderCalendar();
+  </script>
+</body>
+</html>
+
