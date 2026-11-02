@@ -2,89 +2,188 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Calendar</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Calendar</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="subpage">
-    <a href="index.html" class="back">← Back to the book</a>
 
-    <header class="page-heading">
-      <span>CHAPTER 05 · THE DATES</span>
-      <h1>Our Calendar</h1>
-      <p>Days worth remembering.</p>
-    </header>
+<main class="subpage">
+  <a href="index.html" class="back">← Back to the book</a>
 
-    <section class="calendar-paper">
-      <div class="calendar-top">
-        <button id="prev">←</button>
-        <h2 id="month"></h2>
-        <button id="next">→</button>
+  <header class="page-heading">
+    <span>CHAPTER 05 · THE DATES</span>
+    <h1>Our Calendar</h1>
+    <p>Days worth remembering.</p>
+  </header>
+
+  <section class="calendar-paper">
+
+    <div class="calendar-top">
+      <button id="prev" aria-label="이전 달">←</button>
+      <h2 id="month">March 2027</h2>
+      <button id="next" aria-label="다음 달">→</button>
+    </div>
+
+    <div class="calendar-grid" id="calendar">
+      <div class="calendar-weekday">Sun</div>
+      <div class="calendar-weekday">Mon</div>
+      <div class="calendar-weekday">Tue</div>
+      <div class="calendar-weekday">Wed</div>
+      <div class="calendar-weekday">Thu</div>
+      <div class="calendar-weekday">Fri</div>
+      <div class="calendar-weekday">Sat</div>
+    </div>
+
+    <div class="calendar-legend">
+      <div class="legend-item">
+        <span class="legend-dot dot-anniversary"></span>
+        기념일
       </div>
-
-      <div class="calendar-grid" id="calendar">
-        <div>Sun</div><div>Mon</div><div>Tue</div>
-        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      <div class="legend-item">
+        <span class="legend-dot dot-charlize"></span>
+        샤를리즈 생일
       </div>
+      <div class="legend-item">
+        <span class="legend-dot dot-joy"></span>
+        조이 생일
+      </div>
+    </div>
 
-      <p class="calendar-note">
-        ✿ 기억하고 싶은 날들을 표시해 보세요.
-      </p>
-    </section>
-  </main>
+    <div class="event-detail" id="eventDetail">
+      날짜를 선택하면 기념일 기록을 확인할 수 있어요.
+    </div>
 
-  <script>
-    const monthTitle = document.getElementById("month");
-    const calendar = document.getElementById("calendar");
+    <div class="calendar-note">
+      <strong>1991 · THE BEGINNING</strong><br>
+      샤를리즈와 조이, 두 사람의 만남이 시작된 해.
+      <br><br>
+      <strong>2027 · SECOND ANNIVERSARY</strong><br>
+      3월 25일, 함께하는 두 번째 기념일.
+    </div>
 
-    let current = new Date();
+  </section>
+</main>
 
-    function renderCalendar() {
-      const year = current.getFullYear();
-      const month = current.getMonth();
+<footer>CHARLIZE & JOY · OUR STORY NEVER ENDS</footer>
 
-      monthTitle.textContent =
-        `${year} · ${current.toLocaleString("en", {month:"long"})}`;
+<script>
+const monthTitle = document.getElementById("month");
+const calendar = document.getElementById("calendar");
+const eventDetail = document.getElementById("eventDetail");
 
-      calendar.innerHTML = `
-        <div>Sun</div><div>Mon</div><div>Tue</div>
-        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-      `;
+let current = new Date(2027, 2, 1);
 
-      const firstDay = new Date(year, month, 1).getDay();
-      const lastDate = new Date(year, month + 1, 0).getDate();
+const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-      for (let i = 0; i < firstDay; i++) {
-        calendar.innerHTML += `<div class="empty"></div>`;
-      }
-
-      for (let day = 1; day <= lastDate; day++) {
-        const cell = document.createElement("div");
-        cell.className = "calendar-day";
-        cell.textContent = day;
-
-        cell.addEventListener("click", () => {
-          cell.classList.toggle("marked");
-        });
-
-        calendar.appendChild(cell);
-      }
+function getEvent(year, month, day) {
+  if (month === 2 && day === 25) {
+    if (year === 2027) {
+      return {
+        type: "anniversary",
+        label: "♡",
+        text: "2027년 · 두 사람의 2주년 기념일"
+      };
     }
 
-    document.getElementById("prev").onclick = () => {
-      current.setMonth(current.getMonth() - 1);
-      renderCalendar();
+    return {
+      type: "anniversary",
+      label: "♡",
+      text: `${year}년 · 샤를리즈와 조이의 기념일`
     };
+  }
 
-    document.getElementById("next").onclick = () => {
-      current.setMonth(current.getMonth() + 1);
-      renderCalendar();
+  if (month === 4 && day === 5) {
+    return {
+      type: "charlize",
+      label: "✿",
+      text: "샤를리즈 세레니티의 생일"
     };
+  }
 
-    renderCalendar();
-  </script>
+  if (month === 4 && day === 27) {
+    return {
+      type: "joy",
+      label: "✿",
+      text: "조이 무어의 생일"
+    };
+  }
+
+  return null;
+}
+
+function renderCalendar() {
+  const year = current.getFullYear();
+  const month = current.getMonth();
+
+  monthTitle.textContent =
+    `${current.toLocaleString("en", { month: "long" })} ${year}`;
+
+  calendar.innerHTML = "";
+
+  weekdays.forEach(day => {
+    const heading = document.createElement("div");
+    heading.className = "calendar-weekday";
+    heading.textContent = day;
+    calendar.appendChild(heading);
+  });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const lastDate = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement("div");
+    empty.className = "calendar-empty";
+    calendar.appendChild(empty);
+  }
+
+  for (let day = 1; day <= lastDate; day++) {
+    const cell = document.createElement("button");
+    cell.type = "button";
+    cell.className = "calendar-day";
+
+    const number = document.createElement("span");
+    number.textContent = day;
+    cell.appendChild(number);
+
+    const event = getEvent(year, month, day);
+
+    if (event) {
+      cell.classList.add(event.type);
+
+      const symbol = document.createElement("span");
+      symbol.className = "event-symbol";
+      symbol.textContent = event.label;
+      cell.appendChild(symbol);
+    }
+
+    cell.addEventListener("click", () => {
+      if (event) {
+        eventDetail.textContent =
+          `${year}년 ${month + 1}월 ${day}일 · ${event.text}`;
+      } else {
+        eventDetail.textContent =
+          `${year}년 ${month + 1}월 ${day}일 · 등록된 기념일이 없습니다.`;
+      }
+    });
+
+    calendar.appendChild(cell);
+  }
+}
+
+document.getElementById("prev").addEventListener("click", () => {
+  current.setMonth(current.getMonth() - 1);
+  renderCalendar();
+});
+
+document.getElementById("next").addEventListener("click", () => {
+  current.setMonth(current.getMonth() + 1);
+  renderCalendar();
+});
+
+renderCalendar();
+</script>
+
 </body>
 </html>
-
