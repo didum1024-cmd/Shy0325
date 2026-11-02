@@ -90,8 +90,12 @@
         <video controls poster="images/main-poster.jpg">
           <source src="media/main-video.mp4" type="video/mp4">
           브라우저에서 영상을 재생할 수 없습니다.
-        </video>
-      </div>
+    <div class="video-photo">
+  <video controls poster="images/main-poster.jpg">
+    <source src="샤이 500일.mp4" type="video/mp4">
+    브라우저에서 영상을 재생할 수 없습니다.
+  </video>
+</div>
 
       <h2 class="memory-heading">OUR FAVOURITE MEMORY ♡</h2>
 
@@ -163,3 +167,19 @@
 
 </body>
 </html>
+          .video-photo {
+  width: 100%;
+  padding: 8px;
+  margin: 0 auto 24px;
+  background: #fff;
+  box-shadow: 0 5px 14px rgba(80, 57, 40, .14);
+  transform: rotate(-1deg);
+}
+
+.video-photo video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #e8dfd3;
+}
