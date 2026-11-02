@@ -2,180 +2,164 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Little Journey</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little Journey</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="site-header">
-  <p class="top">A PRIVATE TRAVEL JOURNAL</p>
-  <h1>OUR LITTLE JOURNEY</h1>
-  <p class="subtitle">CHARLIZE SERENITY & JOY MOORE · A JOURNEY THROUGH OUR MEMORIES</p>
-</header>
-
-<main>
-
-  <section class="intro">
-    <p class="small-title">✦ OPEN THE BOOK ✦</p>
-    <h2>Every memory<br>leads back to you.</h2>
-    <p>
+  <header class="site-header">
+    <p class="header-small">A LITTLE ARCHIVE OF MEMORIES</p>
+    <h1>OUR LITTLE JOURNEY</h1>
+    <p class="intro">
       오래된 여행 일기장을 펼치듯,<br>
       샤를리즈와 조이의 추억 속으로 떠나보세요.
     </p>
-  </section>
+  </header>
 
-  <!-- MAIN THEME MUSIC -->
+  <main class="book">
 
-  <section class="theme-music">
-    <div class="music-cover">♫</div>
+    <div class="paper-back"></div>
+    <div class="paper-back-two"></div>
+    <div class="book-spine"></div>
 
-    <div class="theme-info">
-      <span>OUR MAIN THEME</span>
-      <h2>A Song for Us</h2>
-      <p>샤를리즈와 조이의 이야기를 위한 테마곡</p>
+    <!-- 왼쪽 페이지 -->
+    <section class="book-page left-page">
 
-      <audio controls preload="metadata">
-        <source src="media/main-theme.mp3" type="audio/mpeg">
-        브라우저가 오디오 재생을 지원하지 않습니다.
-      </audio>
-    </div>
+      <div class="page-label">THE STORY OF TWO</div>
 
-    <div class="music-flower">✿</div>
-  </section>
+      <div class="flower flower-left">✿</div>
 
-  <!-- OPEN BOOK -->
+      <h2 class="book-title">Our Little<br>Journey</h2>
 
-  <section class="book">
-
-    <div class="paper-layer layer-one"></div>
-    <div class="paper-layer layer-two"></div>
-    <div class="paper-layer layer-three"></div>
-
-    <div class="book-page left-page">
-
-      <span class="pressed-flower">✿</span>
-
-      <p class="chapter">THE STORY OF TWO</p>
-
-      <h2 class="book-title">
-        Our Little<br>Journey
-      </h2>
-
-      <p class="description">
+      <p class="book-description">
         1991년, 호그와트로 향하는 기차에서 시작된 인연.<br>
         서로 다른 두 사람이 만나 함께 써 내려간<br>
         오래도록 간직하고 싶은 이야기.
       </p>
 
-      <div class="map">
+      <div class="memory-map">
         <span>A MAP OF OUR MEMORIES</span>
-        <strong>1991 — 2007</strong>
-        <span class="map-star">✦</span>
+        <span class="map-year">1991 — 2007 ✦</span>
       </div>
 
-      <div class="apple-seal">
-        <span>🍎</span>
-        <small>OUR PROMISE</small>
+      <div class="promise">
+        <span class="apple">🍎</span>
+        <span>OUR PROMISE</span>
       </div>
 
-      <p class="stamp">CHARLIZE ♡ JOY</p>
+      <div class="stamp">
+        CHARLIZE ♡ JOY
+      </div>
 
-      <span class="page-number">01</span>
-    </div>
+      <!-- 테마곡 -->
+      <div class="theme-music">
+        <div class="music-heading">
+          <span class="music-note">♫</span>
+          <div>
+            <p class="music-label">OUR MAIN THEME</p>
+            <h3>A Song for Us</h3>
+          </div>
+        </div>
 
-    <div class="book-spine"></div>
+        <p class="music-description">
+          샤를리즈와 조이의 이야기를 위한 테마곡
+        </p>
 
-    <div class="book-page right-page">
+        <audio controls>
+          <source src="media/main-theme.mp3" type="audio/mpeg">
+          브라우저에서 오디오를 재생할 수 없습니다.
+        </audio>
+      </div>
 
-      <p class="chapter">A COLLECTION OF MOMENTS</p>
+      <div class="page-number">01</div>
 
-      <!-- MAIN VIDEO -->
+    </section>
+
+
+    <!-- 오른쪽 페이지 -->
+    <section class="book-page right-page">
+
+      <div class="page-label">COLLECTION OF MOMENTS</div>
+
+      <div class="flower flower-right">✿</div>
 
       <div class="video-photo">
-        <video controls playsinline preload="metadata"
-          poster="images/main-poster.jpg">
+        <video controls poster="images/main-poster.jpg">
           <source src="media/main-video.mp4" type="video/mp4">
-          브라우저가 영상 재생을 지원하지 않습니다.
+          브라우저에서 영상을 재생할 수 없습니다.
         </video>
-
-        <p>♡ OUR FAVOURITE MEMORY ♡</p>
       </div>
 
-      <!-- MEMORY PHOTOS -->
+      <h2 class="memory-heading">OUR FAVOURITE MEMORY ♡</h2>
 
-      <div class="memory-photos">
+      <div class="photo-gallery">
 
-        <figure class="memory-photo photo-one">
+        <figure class="photo photo-one">
           <img src="images/memory1.jpg" alt="Memory one">
           <figcaption>Little moments</figcaption>
         </figure>
 
-        <figure class="memory-photo photo-two">
+        <figure class="photo photo-two">
           <img src="images/memory2.jpg" alt="Memory two">
           <figcaption>With you</figcaption>
         </figure>
 
-        <figure class="memory-photo photo-three">
+        <figure class="photo photo-three">
           <img src="images/memory3.jpg" alt="Memory three">
           <figcaption>Forever</figcaption>
         </figure>
 
       </div>
 
-      <p class="right-text">
+      <p class="bookmark-guide">
         책갈피를 골라<br>
         우리의 이야기를 펼쳐보세요.
       </p>
 
-      <span class="daisy-decoration">✿</span>
-      <span class="page-number">02</span>
+      <div class="page-number">02</div>
 
-    </div>
+    </section>
 
-    <!-- BOOKMARKS -->
 
-    <nav class="side-bookmarks">
+    <!-- 책 바깥쪽 책갈피 -->
+    <nav class="bookmarks">
 
-      <a class="bookmark pink" href="profile.html">
-        PROFILE <span>✿</span>
+      <a href="profile.html" class="bookmark profile">
+        <span>PROFILE</span><span>✿</span>
       </a>
 
-      <a class="bookmark green" href="story.html">
-        STORY <span>✦</span>
+      <a href="story.html" class="bookmark story">
+        <span>STORY</span><span>✦</span>
       </a>
 
-      <a class="bookmark yellow" href="gallery.html">
-        GALLERY <span>♡</span>
+      <a href="gallery.html" class="bookmark gallery">
+        <span>GALLERY</span><span>♡</span>
       </a>
 
-      <a class="bookmark blue" href="music.html">
-        MUSIC <span>♫</span>
+      <a href="music.html" class="bookmark music">
+        <span>MUSIC</span><span>♫</span>
       </a>
 
-      <a class="bookmark red" href="calendar.html">
-        DATES <span>✧</span>
+      <a href="calendar.html" class="bookmark dates">
+        <span>DATES</span><span>✧</span>
       </a>
 
-      <a class="bookmark purple" href="letter.html">
-        LETTERS <span>✉</span>
+      <a href="letter.html" class="bookmark letters">
+        <span>LETTERS</span><span>✉</span>
       </a>
 
     </nav>
 
-  </section>
+  </main>
 
-  <p class="bottom-text">
-    CLICK A BOOKMARK TO BEGIN YOUR JOURNEY
-  </p>
 
-</main>
-
-<footer>
-  CHARLIZE SERENITY & JOY MOORE · OUR STORY NEVER ENDS
-</footer>
+  <footer>
+    <p>MADE WITH LOVE · CHARLIZE & JOY</p>
+    <p>OUR LITTLE JOURNEY ♡</p>
+  </footer>
 
 </body>
 </html>
