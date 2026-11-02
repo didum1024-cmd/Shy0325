@@ -32,7 +32,9 @@
 
       <div class="flower flower-left">✿</div>
 
-      <h2 class="book-title">Our Little<br>Journey</h2>
+      <h2 class="book-title">
+        Our Little<br>Journey
+      </h2>
 
       <p class="book-description">
         1991년, 호그와트로 향하는 기차에서 시작된 인연.<br>
@@ -54,10 +56,12 @@
         CHARLIZE ♡ JOY
       </div>
 
-      <!-- 테마곡 -->
+      <!-- 메인 테마곡 -->
       <div class="theme-music">
+
         <div class="music-heading">
           <span class="music-note">♫</span>
+
           <div>
             <p class="music-label">OUR MAIN THEME</p>
             <h3>A Song for Us</h3>
@@ -70,8 +74,9 @@
 
         <audio controls>
           <source src="media/main-theme.mp3" type="audio/mpeg">
-          브라우저에서 오디오를 재생할 수 없습니다.
+          오디오를 재생할 수 없습니다.
         </audio>
+
       </div>
 
       <div class="page-number">01</div>
@@ -86,19 +91,21 @@
 
       <div class="flower flower-right">✿</div>
 
+      <!-- 메인 영상 -->
       <div class="video-photo">
-        <video controls poster="images/main-poster.jpg">
-          <source src="media/main-video.mp4" type="video/mp4">
+
+        <video controls playsinline preload="metadata">
+          <source src="./샤이%20500일.mp4" type="video/mp4">
           브라우저에서 영상을 재생할 수 없습니다.
-    <div class="video-photo">
-  <video controls poster="images/main-poster.jpg">
-    <source src="샤이 500일.mp4" type="video/mp4">
-    브라우저에서 영상을 재생할 수 없습니다.
-  </video>
-</div>
+        </video>
 
-      <h2 class="memory-heading">OUR FAVOURITE MEMORY ♡</h2>
+      </div>
 
+      <h2 class="memory-heading">
+        OUR FAVOURITE MEMORY ♡
+      </h2>
+
+      <!-- 영상 아래 사진 -->
       <div class="photo-gallery">
 
         <figure class="photo photo-one">
@@ -128,31 +135,37 @@
     </section>
 
 
-    <!-- 책 바깥쪽 책갈피 -->
+    <!-- 오른쪽 책갈피 -->
     <nav class="bookmarks">
 
       <a href="profile.html" class="bookmark profile">
-        <span>PROFILE</span><span>✿</span>
+        <span>PROFILE</span>
+        <span>✿</span>
       </a>
 
       <a href="story.html" class="bookmark story">
-        <span>STORY</span><span>✦</span>
+        <span>STORY</span>
+        <span>✦</span>
       </a>
 
       <a href="gallery.html" class="bookmark gallery">
-        <span>GALLERY</span><span>♡</span>
+        <span>GALLERY</span>
+        <span>♡</span>
       </a>
 
       <a href="music.html" class="bookmark music">
-        <span>MUSIC</span><span>♫</span>
+        <span>MUSIC</span>
+        <span>♫</span>
       </a>
 
       <a href="calendar.html" class="bookmark dates">
-        <span>DATES</span><span>✧</span>
+        <span>DATES</span>
+        <span>✧</span>
       </a>
 
       <a href="letter.html" class="bookmark letters">
-        <span>LETTERS</span><span>✉</span>
+        <span>LETTERS</span>
+        <span>✉</span>
       </a>
 
     </nav>
@@ -167,19 +180,3 @@
 
 </body>
 </html>
-          .video-photo {
-  width: 100%;
-  padding: 8px;
-  margin: 0 auto 24px;
-  background: #fff;
-  box-shadow: 0 5px 14px rgba(80, 57, 40, .14);
-  transform: rotate(-1deg);
-}
-
-.video-photo video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  background: #e8dfd3;
-}
