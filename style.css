@@ -2,288 +2,291 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600&display=swap');
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    background: #eee5d5;
-    color: #554333;
-    font-family: 'Noto Serif KR', serif;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: #eee3d0;
+  color: #594333;
+  font-family: 'Noto Serif KR', serif;
+  overflow-x: hidden;
 }
 
-header {
-    text-align: center;
-    padding: 55px 20px 15px;
+/* HEADER */
+
+.site-header {
+  text-align: center;
+  padding: 35px 15px 10px;
 }
 
 .top {
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: #9b8064;
+  margin: 0 0 12px;
+  color: #97775c;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 5px;
 }
 
-header h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    letter-spacing: 5px;
-    font-weight: 500;
-    margin: 12px 0;
+.site-header h1 {
+  margin: 0;
+  color: #803c49;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 500;
+  letter-spacing: 5px;
 }
 
 .subtitle {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #9b8064;
+  margin-top: 12px;
+  color: #98765b;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
+/* INTRO */
+
 main {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .intro {
-    text-align: center;
-    margin: 30px 0 55px;
+  margin: 65px auto 48px;
+  text-align: center;
 }
 
 .small-title {
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: #a77b61;
+  color: #934e50;
+  font-size: 12px;
+  letter-spacing: 4px;
 }
 
 .intro h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    line-height: 1.05;
-    font-weight: 500;
-    margin: 20px 0;
+  margin: 24px 0;
+  color: #803c49;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 55px);
+  font-weight: 500;
+  line-height: 1.05;
 }
 
-.intro > p:last-child {
-    font-size: 13px;
-    line-height: 2;
-    color: #907b67;
+.intro-description {
+  color: #8e7258;
+  font-size: 14px;
+  line-height: 2;
 }
 
 /* BOOK */
 
 .book {
-    position: relative;
-    display: flex;
-    max-width: 850px;
-    min-height: 480px;
-    margin: 0 auto 45px;
-    filter: drop-shadow(0 22px 15px #59452b35);
-    isolation: isolate;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  max-width: 850px;
+  min-height: 480px;
+  margin: 0 auto 45px;
+  filter: drop-shadow(0 18px 15px #59452b35);
 }
 
-/* 여러 겹의 책장 */
+/* PAPER LAYERS */
 
-.paper-layer {
-    position: absolute;
-    z-index: -1;
-    left: 8px;
-    right: 8px;
-    height: 100%;
-    border-radius: 5px;
-    background: #e6d8c3;
-    border: 1px solid #d5c3a8;
+.paper-back {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  border: 1px solid #d7c4a7;
+  border-radius: 5px;
+  background: #e9dcc7;
 }
 
-.layer-one {
-    top: 9px;
-    transform: rotate(0.4deg);
+.paper-back-one {
+  transform: translate(5px, 7px) rotate(0.4deg);
+  background: #e6d6bd;
 }
 
-.layer-two {
-    top: 15px;
-    left: 13px;
-    right: 4px;
-    background: #f3e8d5;
+.paper-back-two {
+  transform: translate(10px, 13px) rotate(0.8deg);
+  background: #f5e9d5;
 }
 
-.layer-three {
-    top: 21px;
-    left: 18px;
-    right: 0;
-    background: #d8c5aa;
+.paper-back-three {
+  transform: translate(15px, 19px) rotate(1deg);
+  background: #d9c5a7;
 }
 
-/* 책의 양쪽 페이지 */
+/* BOOK PAGES */
 
-.left-page,
-.right-page {
-    position: relative;
-    width: 50%;
-    min-height: 480px;
-    padding: 45px 38px;
-    background:
-        radial-gradient(#d7c6aa 0.6px, transparent 0.6px),
-        #fff9ed;
-    background-size: 9px 9px;
-    border: 1px solid #e4d6c1;
+.book-page {
+  position: relative;
+  width: 50%;
+  min-width: 0;
+  min-height: 480px;
+  padding: 40px 38px;
+  background-color: #fff9ed;
+  background-image:
+    radial-gradient(#d9c9ae 0.55px, transparent 0.55px);
+  background-size: 9px 9px;
+  border: 1px solid #e5d7c2;
 }
 
 .left-page {
-    border-radius: 5px 0 0 5px;
-    box-shadow: inset -12px 0 20px #92785b16;
+  border-radius: 5px 0 0 5px;
+  box-shadow: inset -15px 0 22px #8c71501a;
 }
 
 .right-page {
-    border-radius: 0 5px 5px 0;
-    box-shadow: inset 12px 0 20px #92785b16;
+  border-radius: 0 5px 5px 0;
+  box-shadow: inset 15px 0 22px #8c71501a;
 }
 
-/* 책등 */
+/* BOOK SPINE */
 
 .book-spine {
-    position: absolute;
-    z-index: 5;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 18px;
-    transform: translateX(-50%);
-    background: linear-gradient(
-        90deg,
-        #d0b99b,
-        #f2e3ca 35%,
-        #c5ac8c 65%,
-        #e9d8bd
-    );
-    box-shadow: 0 0 10px #6b503322;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 18px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    #cbb394,
+    #f5e6cd 30%,
+    #c5a987 65%,
+    #ead9bd
+  );
+  box-shadow: 0 0 12px #60482c30;
 }
 
-/* 페이지 장식 */
+/* LEFT PAGE */
 
 .chapter {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: #a17d5e;
+  margin: 0;
+  color: #a17b5b;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 2px;
 }
 
 .book-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px;
-    font-weight: 500;
-    line-height: 0.95;
-    margin: 38px 0 25px;
+  margin: 38px 0 25px;
+  color: #754a45;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 0.95;
 }
 
 .description {
-    font-size: 12px;
-    line-height: 2.2;
-    color: #8e7964;
+  color: #8d7965;
+  font-size: 12px;
+  line-height: 2.2;
 }
 
 .map {
-    margin-top: 35px;
-    padding: 17px 8px;
-    text-align: center;
-    border: 1px dashed #c8ad8c;
-    color: #a18464;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    letter-spacing: 1px;
+  margin-top: 30px;
+  padding: 15px 5px;
+  border: 1px dashed #c9ae8c;
+  color: #9d8061;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
 .map span {
-    color: #bd8c6e;
-    margin: 0 5px;
+  margin: 0 5px;
+  color: #b67d67;
 }
 
 .stamp {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 8px 12px;
-    border: 1px solid #bd8c7a;
-    color: #a76c60;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    transform: rotate(-5deg);
+  display: inline-block;
+  margin-top: 25px;
+  padding: 7px 12px;
+  border: 1px solid #bd8c7a;
+  color: #a76c60;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  transform: rotate(-5deg);
 }
 
-.page-number {
-    position: absolute;
-    bottom: 17px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    color: #b59b7c;
-}
-
-/* 사진 영역 */
+/* RIGHT PAGE */
 
 .photo {
-    background: #e9ddca;
-    padding: 12px 12px 7px;
-    margin: 28px auto 20px;
-    width: 85%;
-    transform: rotate(2deg);
-    box-shadow: 3px 5px 10px #604c3020;
+  width: 84%;
+  margin: 25px auto 20px;
+  padding: 12px 12px 7px;
+  background: #e9ddca;
+  box-shadow: 3px 5px 10px #604c3020;
+  transform: rotate(2deg);
 }
 
 .photo-inner {
-    display: grid;
-    place-content: center;
-    text-align: center;
-    min-height: 145px;
-    background: #d8c9b2;
-    color: #8c7157;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    line-height: 1.5;
+  display: grid;
+  min-height: 145px;
+  place-content: center;
+  background: #d8c9b2;
+  color: #8c7157;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 1.5;
 }
 
 .photo > p {
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 10px;
-    color: #97765c;
+  margin: 8px 0 0;
+  color: #97765c;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
 }
 
 .right-text {
-    font-size: 12px;
-    line-height: 1.9;
-    text-align: center;
-    color: #8d7862;
-    margin: 30px 0 20px;
+  margin: 27px 0 18px;
+  color: #8d7862;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.9;
 }
 
-/* 책갈피 */
+/* BOOKMARKS */
 
 .bookmarks {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 9px;
-    padding: 0 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  padding: 0 7px;
 }
 
 .bookmark {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 12px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    color: #66503c;
-    box-shadow: 2px 3px 4px #59452b20;
-    transition: .25s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 0;
+  padding: 10px 11px;
+  color: #66503c;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  box-shadow: 2px 3px 4px #59452b20;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .bookmark:hover {
-    transform: translateY(-4px) rotate(-2deg);
-    box-shadow: 3px 7px 8px #59452b25;
+  transform: translateY(-4px) rotate(-2deg);
+  box-shadow: 3px 7px 8px #59452b25;
 }
 
 .pink { background: #ead1cc; }
@@ -293,125 +296,170 @@ main {
 .red { background: #e8c7b8; }
 .purple { background: #ded3e2; }
 
-/* 데이지와 사과 */
+/* FLOWER AND APPLE DECORATIONS */
 
 .pressed-flower {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #b98a78;
-    font-size: 28px;
-    transform: rotate(15deg);
+  position: absolute;
+  top: 17px;
+  right: 28px;
+  color: #b98a78;
+  font-size: 27px;
+  transform: rotate(15deg);
 }
 
 .apple-decoration {
-    position: absolute;
-    right: 32px;
-    bottom: 42px;
-    font-size: 27px;
-    transform: rotate(-12deg);
+  position: absolute;
+  right: 30px;
+  bottom: 35px;
+  font-size: 25px;
+  transform: rotate(-12deg);
 }
 
 .daisy-decoration {
-    position: absolute;
-    right: 18px;
-    bottom: 40px;
-    font-size: 30px;
-    color: #c18a78;
-    transform: rotate(15deg);
+  position: absolute;
+  right: 15px;
+  bottom: 38px;
+  color: #c18a78;
+  font-size: 29px;
+  transform: rotate(15deg);
 }
 
-/* 삐져나온 종이 */
+.page-number {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  left: 0;
+  color: #b59b7c;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+}
+
+/* LOOSE PAPERS */
 
 .loose-paper {
-    position: absolute;
-    z-index: -2;
-    width: 115px;
-    height: 135px;
-    background: #d8dfcf;
-    padding: 12px;
-    color: #71816b;
-    font-family: 'Cormorant Garamond', serif;
-    box-shadow: 2px 5px 8px #59452b20;
+  position: absolute;
+  z-index: -2;
+  width: 110px;
+  height: 125px;
+  padding: 12px;
+  background: #d8dfcf;
+  color: #71816b;
+  font-family: 'Cormorant Garamond', serif;
+  box-shadow: 2px 5px 8px #59452b20;
 }
 
-.loose-paper span {
-    font-size: 9px;
-    letter-spacing: 2px;
+.loose-paper > span:first-child {
+  font-size: 9px;
+  letter-spacing: 2px;
 }
 
 .loose-paper p {
-    font-size: 16px;
-    line-height: 1.2;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .loose-paper-left {
-    top: -35px;
-    left: 25px;
-    transform: rotate(-9deg);
+  top: -28px;
+  left: 24px;
+  transform: rotate(-8deg);
 }
 
 .loose-paper-right {
-    bottom: -30px;
-    right: 35px;
-    background: #e9d2c7;
-    color: #986e60;
-    transform: rotate(7deg);
+  right: 25px;
+  bottom: -25px;
+  background: #e9d2c7;
+  color: #986e60;
+  transform: rotate(7deg);
 }
 
-/* 하단 */
+.note-flower,
+.note-heart {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  font-size: 20px;
+}
+
+/* BOTTOM */
 
 .bottom-text {
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    letter-spacing: 3px;
-    color: #a1886d;
-    margin: 50px 0;
+  margin: 40px 0;
+  color: #a1886d;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
 }
 
 footer {
-    text-align: center;
-    padding: 30px 10px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: #9b8064;
+  padding: 25px 10px;
+  color: #9b8064;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
 }
 
-/* 모바일 */
+/* MOBILE */
 
 @media (max-width: 650px) {
-    header h1 {
-        font-size: 30px;
-    }
+  .site-header {
+    padding-top: 25px;
+  }
 
-    .intro h2 {
-        font-size: 34px;
-    }
+  .site-header h1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
 
-    .book {
-        flex-direction: column;
-        max-width: 420px;
-    }
+  .subtitle {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
 
-    .left-page,
-    .right-page {
-        width: 100%;
-        border-radius: 4px;
-        min-height: 450px;
-    }
+  .intro {
+    margin: 45px auto 35px;
+  }
 
-    .book-spine {
-        display: none;
-    }
+  .intro h2 {
+    font-size: 38px;
+  }
 
-    .bookmarks {
-        padding-bottom: 25px;
-    }
+  .book {
+    display: flex;
+    flex-direction: column;
+    max-width: 420px;
+  }
 
-    .loose-paper {
-        width: 90px;
-        height: 110px;
-    }
+  .book-page {
+    width: 100%;
+    min-height: 440px;
+    border-radius: 4px;
+  }
+
+  .book-spine {
+    display: none;
+  }
+
+  .left-page {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .right-page {
+    border-radius: 0 0 5px 5px;
+  }
+
+  .loose-paper {
+    width: 85px;
+    height: 105px;
+  }
+
+  .loose-paper-left {
+    left: 8px;
+  }
+
+  .loose-paper-right {
+    right: 8px;
+  }
 }
